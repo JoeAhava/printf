@@ -33,3 +33,14 @@ int print_str(va_list ap)
 	}
 	return (_puts(arg, 0));
 }
+
+/**
+ * print_percent -  print percent character
+ * @args: char
+ * Return: percent character
+ */
+
+int print_percent(va_list args __attribute__((unused)))
+{
+	return (_putchar('%'));
+}
