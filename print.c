@@ -8,37 +8,38 @@
 int _printf(const char *format, ...)
 {
 	const char *t;
-	unsigned int i;
+	int i;
 	char *s;
 	int count = 0;
 
 	va_list ap;
+
 	va_start(ap, format);
 
 	for (t = format; *t != '\0'; t++)
 	{
-		while (*t != '%')
+		while (*t != '%' && *t != '\0')
 		{
 			_putchar(*t);
 			t++;
 			count++;
 		}
 		t++;
+
+
+		switch (*t)
+		{
+		case 'c':
+			i = va_arg(ap, int);
+			_putchar(i);
+			break;
+
+		case 's':
+			s = va_arg(ap, char *);
+			_puts(s);
+			break;
+		}
 	}
-
-	switch (*t)
-	{
-	case 'c':
-		i = va_arg(ap, int);
-		_putchar(i);
-		break;
-
-	case 's':
-		s = va_arg(ap, char *);
-		_puts(s);
-		break;
-	}
-
 	va_end(ap);
 	return (count);
 }
