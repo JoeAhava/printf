@@ -8,37 +8,41 @@
 int _printf(const char *format, ...)
 {
 	const char *t;
-	int i;
 	char *s;
-	int count = 0;
+	int i, count = 0;
 
 	va_list ap;
 
 	va_start(ap, format);
 
-	for (t = format; *t != '\0'; t++)
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%'  && format[1] == ' ' && !format[2])
+		return (-1);
+
+	for (t = format; *t; t++)
 	{
-		while (*t != '%' && *t != '\0')
+		if (*t == '%')
 		{
-			_putchar(*t);
 			t++;
-			count++;
-		}
-		t++;
-
-
-		switch (*t)
-		{
-		case 'c':
-			i = va_arg(ap, int);
-			_putchar(i);
-			break;
-
-		case 's':
-			s = va_arg(ap, char *);
-			_puts(s);
-			break;
-		}
+			if (*t == '%')
+			{
+				count += _putchar('%');
+				continue;
+			}
+			switch (*t)
+			{
+			case 'c':
+				i = va_arg(ap, int);
+				_putchar(i);
+				break;
+			case 's':
+				s = va_arg(ap, char *);
+				_puts(s);
+				break;
+			}
+		} else
+			count += _putchar(*t);
 	}
 	va_end(ap);
 	return (count);
