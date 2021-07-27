@@ -19,6 +19,8 @@ int print_hexa_lower(va_list ap);
 int print_hexa_upper(va_list ap);
 int print_unsigned(va_list ap);
 int print_unsigned_number(unsigned int n);
+int print_ptr(va_list ap);
+char *convert_base_pointer(unsigned long p);
 
 /**
  *struct func_identifier - struct for identifying funciton

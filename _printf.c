@@ -16,10 +16,11 @@ int (*get_func(const char c))(va_list)
 		{"u", print_unsigned},
 		{"o", print_octal},
 		{"x", print_hexa_lower},
-		{"X", print_hexa_upper}
+		{"X", print_hexa_upper},
+		{"p", print_ptr}
 	};
 
-	while (i < 7)
+	while (i < 8)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
