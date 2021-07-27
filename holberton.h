@@ -13,7 +13,7 @@ int _putchar(char c);
 int _puts(char *str, int ascii);
 int convert_alpha_numeric(int nb, int upper);
 char *convert_base(unsigned long nb, unsigned int base, int upper);
-
+int print_percent(va_list ap __attribute__((unused)));
 
 /**
  *struct func_identifier - struct for identifying funciton

@@ -11,7 +11,8 @@ int (*get_func(const char c))(va_list)
 
 	function_identifier f[] = {
 		{"c", print_char},
-		{"s", print_str}
+		{"s", print_str},
+		{"%", print_percent}
 	};
 
 	while (i < 2)
