@@ -33,7 +33,7 @@ char *convert_base(unsigned long nb, unsigned int base, int upper)
 		i++;
 	}
 	str = malloc(sizeof(char) * i + 2);
-	if(!str)
+	if (!str)
 		return (0);
 	str[i + 1] = '\0';
 

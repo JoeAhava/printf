@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
 	int (*function)();
 
 	va_list ap;
+
 	va_start(ap, format);
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -51,13 +52,13 @@ int _printf(const char *format, ...)
 				_putchar(format[i]);
 				sum++;
 				i++;
-			}else
+			} else
 			{
 				sum += function(ap);
 				i += 2;
 				continue;
 			}
-		}else
+		} else
 		{
 			_putchar(format[i]);
 			sum++;
@@ -65,5 +66,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
-	return(sum);
+	return (sum);
 }

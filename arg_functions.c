@@ -26,7 +26,7 @@ int print_str(va_list ap)
 	char *arg = va_arg(ap, char *);
 	int sum = 0;
 
-	if(!arg)
+	if (!arg)
 	{
 		sum += _puts("(null)", 0);
 		return (sum);
