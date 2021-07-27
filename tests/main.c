@@ -32,6 +32,7 @@ int main(void)
     printf("Length d,i:[%d, %i]\n", len4, len4);
     printf("Length b:%d\n", len5);
     _printf("Binary: %b\n", 98);
+    _printf("%S\n", "Holberton\nSchool");
     /* printf("Binary: %b\n", 98); */
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);

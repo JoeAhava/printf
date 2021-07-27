@@ -69,3 +69,23 @@ int print_binary(va_list ap)
 	free(str);
 	return (counter);
 }
+
+/**
+ * print_str_unprintable - unprint some characters
+ * @ap: arg list
+ * Return: number of printed char
+ */
+
+int print_str_x(va_list ap)
+{
+	char *arg = va_arg(ap, char *);
+	int count = 0;
+
+	if (!arg)
+	{
+		count += _puts("(null)", 0);
+		return (count);
+	}
+
+	return (_puts(arg, 1));
+}

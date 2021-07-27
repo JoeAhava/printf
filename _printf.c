@@ -12,6 +12,7 @@ int (*get_func(const char c))(va_list)
 	function_identifier f[] = {
 		{"c", print_char},
 		{"s", print_str},
+		{"S", print_str_x},
 		{"%", print_percent},
 		{"d", print_int},
 		{"b", print_binary},
@@ -25,7 +26,7 @@ int (*get_func(const char c))(va_list)
 		{NULL, NULL}
 	};
 
-	while (i < 13)
+	while (i < 14)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
