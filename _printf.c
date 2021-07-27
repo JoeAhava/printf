@@ -23,10 +23,9 @@ int (*get_func(const char c))(va_list)
 		{"X", print_hexa_upper},
 		{"p", print_ptr},
 		{"r", print_str_reverse},
-		{NULL, NULL}
 	};
 
-	while (i < 14)
+	while (i < 13)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
