@@ -1,21 +1,25 @@
+#include <unistd.h>
+#include <stdlib.h>
 #include "holberton.h"
 
 /**
  * _putchar - writes the character c to stdout
- * @c: the character to print
+ * @c: The character to print
  * Return: number of printed char
  */
+
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
 /**
- * _puts - write all char from a string to stdout
+ * _puts - write all char from string to stdout
  * @str: string to print
  * @ascii: enable ascii restriction
  * Return: number of printed char
  */
+
 int _puts(char *str, int ascii)
 {
 	char *s;
@@ -32,7 +36,8 @@ int _puts(char *str, int ascii)
 			sum += _puts(s, 0);
 			free(s);
 			i++;
-		} else
+		}
+		else
 		{
 			sum += _putchar(str[i]);
 			i++;
@@ -58,4 +63,37 @@ int _strlen_recursion(char *s)
 	{
 		return (0);
 	}
+}
+
+/**
+ * _strdup - a pointer to a newly allocated space in memory,
+ *           which contains a copy of the string given as a parameter.
+ *
+ * @str: char pointer to copy
+ *
+ * Return: a new char pointer
+ */
+char *_strdup(char *str)
+{
+	char *s;
+	int cLoop;
+
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
+	s = malloc(sizeof(char) * (_strlen_recursion(str) + 1));
+
+	if (s == NULL)
+	{
+		return (NULL);
+	}
+
+	for (cLoop = 0; cLoop < _strlen_recursion(str) + 1; cLoop++)
+	{
+		s[cLoop] = str[cLoop];
+	}
+
+	return (s);
 }
