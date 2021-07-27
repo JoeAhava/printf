@@ -15,7 +15,7 @@ int (*get_func(const char c))(va_list)
 		{"%", print_percent}
 	};
 
-	while (i < 2)
+	while (i < 3)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
