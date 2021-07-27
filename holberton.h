@@ -21,6 +21,8 @@ int print_unsigned(va_list ap);
 int print_unsigned_number(unsigned int n);
 int print_ptr(va_list ap);
 char *convert_base_pointer(unsigned long p);
+int print_str_reverse(va_list ap);
+int _strlen_recursion(char *s);
 
 /**
  *struct func_identifier - struct for identifying funciton
