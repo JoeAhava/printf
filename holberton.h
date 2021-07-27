@@ -8,13 +8,13 @@
 
 /**
  * struct modifier - mofifier fields collection
- * @flags: flags field composed of ['0', ' ', '#', '+', '-']
+ * @flags: pointer to char can be 
+ * any of ['0', ' ', '#', '+', '-']
  * @width: width field, positive number
- * @precision: precision field positive number not including '.'
- * or -1 for '*'
- * @length: length field string composed of ['h', 'l']
- * @specifier: specifier character can one of
- * ['c', 's', '%', 'd', 'i', 'b', 'u', 'o', 'x', 'X', 'S', 'p', 'r', 'R']
+ * @precision: precision field positive 
+ * number not including '.'or -1 for '*'
+ * @length: pointer to char
+ * @specifier: char value
  *
  */
 typedef struct modifier
