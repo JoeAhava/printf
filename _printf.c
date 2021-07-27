@@ -14,6 +14,7 @@ int (*get_func(const char c))(va_list)
 		{"s", print_str},
 		{"%", print_percent},
 		{"d", print_int},
+		{"b", print_binary},
 		{"i", print_int},
 		{"u", print_unsigned},
 		{"o", print_octal},

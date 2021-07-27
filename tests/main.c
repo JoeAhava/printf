@@ -28,6 +28,8 @@ int main(void)
     printf("Negative:[%d]\n", -762534);
     _printf("Length d,i:[%d, %i]\n", len3, len3);
     printf("Length d,i:[%d, %i]\n", len4, len4);
+    _printf("Binary: %b\n", 98);
+    /* printf("Binary: %b\n", 98); */
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
     _printf("Unsigned octal:[%o]\n", ui);
