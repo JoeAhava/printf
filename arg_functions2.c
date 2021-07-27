@@ -8,9 +8,7 @@
  */
 int print_int(va_list ap)
 {
-	int argument = va_arg(ap, int);
-
-	return (print_int_number(argument));
+	return (print_int_number(va_arg(ap, int)));
 }
 
 /**
@@ -21,22 +19,25 @@ int print_int(va_list ap)
  */
 int print_int_number(int n)
 {
-	int num = 0, count = 0;
+	unsigned int num;
+	int count = 0;
 
 	num = n;
 	if (n < 0)
 	{
-		num *= -1;
 		_putchar('-');
+		count++;
+		num *= -1;
 	}
-	if (n < 9 && n > -9)
+	if (num < 9)
 	{
-		_putchar('0' + n);
-		return (0);
+		count += _putchar('0' + num);
+		count++;
+		return (count);
 	}
 	else
 	{
-		count = print_int_number(num / 10) + 1;
+		count += print_int_number(num / 10) + 1;
 		_putchar('0' + num % 10);
 		return (count);
 	}
