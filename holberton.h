@@ -25,6 +25,7 @@ int print_str_reverse(va_list ap);
 int _strlen_recursion(char *s);
 int print_int(va_list ap);
 int print_int_number(int n);
+int print_binary(va_list ap);
 
 /**
  *struct func_identifier - struct for identifying funciton

@@ -13,6 +13,7 @@ int main(void)
     int len2;
     int len3;
     int len4;
+    int len5;
     unsigned int ui;
     void *addr;
 
@@ -20,6 +21,7 @@ int main(void)
     len2 = printf("Let's try to printf a simple sentence.\n");
     len3 = _printf("Negative:[%d]\n", -762534);
     len4 = printf("Negative:[%d]\n", -762534);
+    len5 = _printf("Binary: %b\n", 98);
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
     _printf("Length:[%d, %i]\n", len, len);
@@ -28,6 +30,9 @@ int main(void)
     printf("Negative:[%d]\n", -762534);
     _printf("Length d,i:[%d, %i]\n", len3, len3);
     printf("Length d,i:[%d, %i]\n", len4, len4);
+    printf("Length b:%d\n", len5);
+    _printf("Binary: %b\n", 98);
+    /* printf("Binary: %b\n", 98); */
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
     _printf("Unsigned octal:[%o]\n", ui);
