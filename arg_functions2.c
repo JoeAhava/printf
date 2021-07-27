@@ -29,13 +29,12 @@ int print_int_number(int n)
 		count++;
 		num *= -1;
 	}
-	if (num < 9)
+	if (num <= 9)
 	{
 		count += _putchar('0' + num);
-		count++;
 		return (count);
 	}
-	else
+	if (num > 9)
 	{
 		count += print_int_number(num / 10) + 1;
 		_putchar('0' + num % 10);
