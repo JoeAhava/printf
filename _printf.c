@@ -13,6 +13,8 @@ int (*get_func(const char c))(va_list)
 		{"c", print_char},
 		{"s", print_str},
 		{"%", print_percent},
+		{"d", print_int},
+		{"i", print_int},
 		{"u", print_unsigned},
 		{"o", print_octal},
 		{"x", print_hexa_lower},
@@ -22,7 +24,7 @@ int (*get_func(const char c))(va_list)
 		{NULL, NULL}
 	};
 
-	while (i < 10)
+	while (i < 12)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
