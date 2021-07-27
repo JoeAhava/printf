@@ -21,17 +21,19 @@ int print_int(va_list ap)
  */
 int print_int_number(int n)
 {
-	int num = 0, count = 0;
+	unsigned int num = 0;
+	int count = 0;
 
 	num = n;
 	if (n < 0)
 	{
-		num *= -1;
 		_putchar('-');
+		count++;
 	}
-	if (n < 9 && n > -9)
+	if (num < 9)
 	{
-		_putchar('0' + n);
+		_putchar('0' + num);
+		count++;
 		return (0);
 	}
 	else
