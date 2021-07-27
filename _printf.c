@@ -25,7 +25,7 @@ int (*get_func(const char c))(va_list)
 		{NULL, NULL}
 	};
 
-	while (i < 12)
+	while (i < 13)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
@@ -37,7 +37,7 @@ int (*get_func(const char c))(va_list)
 
 /**
  * _printf - function to perform like printf
- * @format: format string
+ * @format: format astring
  * Return: number of characters printed excluding the null byte
  */
 int _printf(const char *format, ...)
