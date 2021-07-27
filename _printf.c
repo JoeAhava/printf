@@ -18,10 +18,11 @@ int (*get_func(const char c))(va_list)
 		{"x", print_hexa_lower},
 		{"X", print_hexa_upper},
 		{"p", print_ptr},
-		{"r", print_str_reverse}
+		{"r", print_str_reverse},
+		{NULL, NULL}
 	};
 
-	while (i < 9)
+	while (i < 10)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
