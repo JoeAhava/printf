@@ -12,10 +12,14 @@ int (*get_func(const char c))(va_list)
 	function_identifier f[] = {
 		{"c", print_char},
 		{"s", print_str},
-		{"%", print_percent}
+		{"%", print_percent},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hexa_lower},
+		{"X", print_hexa_upper}
 	};
 
-	while (i < 3)
+	while (i < 7)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
