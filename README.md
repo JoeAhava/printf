@@ -1,41 +1,68 @@
-# 0x11. C - printf
-
-## Description
-This team project is part of the first trimester curriculum of the ALX Programme
-.
-_printf replicates the functionality of printf() and prints output to the
-standard output .
-
----
-
-## Prototype
-```int _printf(const char *format, ...);```
+# printf
 
 ## Usage
-* Prints a string to the standard output, according to a given format
-* All files were created and compiled on Ubuntu 20.04 LTS using GCC with
-the command ```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c```
-* Returns the number of characters in the output string on success, -1 otherwise
-* Call it this way: ```_printf("format string", arguments...)``` where ```format
-string``` can contain conversion specifiers and flags,
-along with regular characters
 
-## Examples
+```c
+#include "holberton.h"
 
-* ```_printf("Hello, Holberton\n")``` *prints "Hello, Holberton", followed by a
-new line*
-* ```_printf("%s", "Hello")``` *prints "Hello"*
-* ```_printf("This is a number: %d", 98)``` *prints "This is a number: 98"*
+// ...
 
----
+_printf("%c", "H");
+_printf("%s", "Bienvenue chez vous");
+_printf("%r", "Holberton");
+_printf("%R", "adrien");
 
-# Tasks
+// ...
+```
 
-These are all the tasks of this project, the ones that are completed link to the
-corresponding files.
+Will display:
 
-### [0. I'm not going anywhere. You can print that wherever you want to. I'm
-here and I'm a Spur for life](./print.c)
-* Write a function that produces output according to format.
-  - c : converts input into a character
-  - s : converts input into a string
+```shell
+H
+Bienvenue chez vous
+notrebloH
+nqevra
+```
+
+## Files
+
+### arg_nbr_functions.c & arg_nbr_functions_1.c
+
+This file corresponds to every functions used to manipulate number arguments.
+
+### arg_str_functions.c
+
+This file corresponds to every functions used to maninipulate string argument.
+
+### conversion.c
+
+This file corresponds to every functions used to convert number, string, pointer.
+
+- int convert_alpha_numeric(int nb, int upper)
+- char *convert_base(unsigned long nb, unsigned int base, int upper)
+- char *convert_base_pointer(void *p)
+- char *convert_rot13(char *str)
+
+### numbers.c
+
+This file corresponds to every basic number functions.
+
+- int print_unsigned_number(unsigned int n)
+- int print_number(int n)
+- int _nbr_len(int prmNumber)
+- char *_itoa(int prmNumber)
+
+### strings.c
+
+This files corresponds to every basic string functions.
+
+- int _putchar(char c)
+- int _puts(char *str, int ascii)
+- int _strlen_recursion(char *s)
+- char *_strdup(char *str)
+
+## Authors
+
+Hedy OUAHES <hedy.ouahes@holbertonschool.com>
+
+Adrien MILLOT <adrien.millot@holbertonschool.com>

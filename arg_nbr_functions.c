@@ -1,67 +1,40 @@
 #include "holberton.h"
+#include <stdarg.h>
+#include <stdlib.h>
 
 /**
- * print_ptr - print adress
- * @ap: arg void
+ * print_nbr - print number
+ * @ap: arg list
  * Return: number of printed char
  */
-int print_ptr(va_list ap)
+
+int print_nbr(va_list ap)
 {
-	char *str;
-	int sum = 0;
-	unsigned long p = (unsigned long) va_arg(ap, void*);
-
-	if (!p)
-	{
-		sum += _puts("(nil)", 0);
-		return (sum);
-	}
-
-	str = convert_base_pointer(p);
-	if (!str)
-		return (0);
-	sum += _puts("0x", 0);
-	sum += _puts(str, 0);
-	free(str);
-	return (sum);
+	return (print_number(va_arg(ap, int)));
 }
 
 /**
- * print_str_reverse - reverse a string
+ * print_binary - print number binary base
  * @ap: arg list
- * Return: number printed char
+ * Return: number of printed char
  */
-int print_str_reverse(va_list ap)
-{
-	char *arg = va_arg(ap, char *), *str;
-	int size, left, limit, right, sum = 0;
 
-	if (!arg)
+int print_binary(va_list ap)
+{
+	char *str;
+	int sum = 0;
+	unsigned int argument = va_arg(ap, unsigned int);
+
+	if (!argument)
 	{
-		sum += _puts("%r", 0);
+		sum += _puts("0", 0);
 		return (sum);
 	}
-	size = _strlen_recursion(arg);
-	right = size - 1;
-	limit = (size % 2 == 0) ? (size + 1) / 2 : (size / 2);
-	str = malloc(sizeof(char) * (size + 1));
-
-	if (str == NULL)
+	str = convert_base(argument, 2, 0);
+	if (!str)
 		return (0);
-	if (size % 2 != 0)
-		str[limit] = arg[limit];
-
-	for (left = 0; left < limit; left++)
-	{
-		str[left] = arg[right];
-		str[right] = arg[left];
-		right--;
-	}
-	str[size] = '\0';
-
 	sum = _puts(str, 0);
 	free(str);
-
 	return (sum);
 }
 
