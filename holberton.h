@@ -50,6 +50,15 @@ int print_str_x(va_list ap);
 int print_rot13(va_list ap);
 char *convert_rot13(char *str);
 
+void *_realloc(void *ptr, unsigned int, unsigned int);
+void free_modifier(modifier_t *);
+char *get_flags(const char *, unsigned int *);
+int get_width(const char *, unsigned int *);
+int get_precision(const char *, unsigned int *);
+char *get_length(const char *, unsigned int *);
+char get_specifier(const char *, unsigned int *);
+modifier_t *get_modifier(const char *, unsigned int *);
+
 /**
  *struct func_identifier - struct for identifying funciton
  *@c: string
