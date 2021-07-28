@@ -44,6 +44,8 @@ int _printf(const char *format, ...)
 {
 	int i = 0, sum = 0;
 	int (*function)();
+	unsigned int m;
+	modifier_t *modif;
 
 	va_list ap;
 
@@ -63,6 +65,8 @@ int _printf(const char *format, ...)
 				function = get_func(format[i + 1]);
 			if (function == NULL)
 			{
+				m = i + 1;
+				modif = get_modifier(format, &m);
 				_putchar(format[i]);
 				sum++;
 				i++;
@@ -72,6 +76,7 @@ int _printf(const char *format, ...)
 				i += 2;
 				continue;
 			}
+			free(modif);
 		} else
 		{
 			_putchar(format[i]);
