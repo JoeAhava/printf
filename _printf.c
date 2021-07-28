@@ -36,7 +36,6 @@ int (*get_func(const char c))(va_list)
 }
 
 /**
-<<<<<<< HEAD
  * _printf - function to perform like printf
  * @format: format astring
  * Return: number of characters printed excluding the null byte
