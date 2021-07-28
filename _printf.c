@@ -23,6 +23,7 @@ int (*get_func(const char c))(va_list)
 		{"X", print_hexa_upper},
 		{"p", print_ptr},
 		{"r", print_str_reverse},
+		{"R", print_rot13},
 	};
 
 	while (i < 13)
