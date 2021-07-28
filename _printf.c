@@ -26,17 +26,17 @@ int (*get_func(const char c))(va_list)
 		{"R", print_rot13},
 	};
 
-	while (i < 13)
+	while (i < 14)
 	{
 		if (c == f[i].c[0])
 			return (f[i].f);
-
 		i++;
 	}
 	return (NULL);
 }
 
 /**
+<<<<<<< HEAD
  * _printf - function to perform like printf
  * @format: format astring
  * Return: number of characters printed excluding the null byte
