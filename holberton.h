@@ -30,7 +30,7 @@ int print_str_x(va_list ap);
 int print_rot13(va_list ap);
 char *convert_rot13(char *str);
 
-int check_modifier(const char *s, int i);
+int check_modifier(char s, char p);
 
 /**
  *struct func_identifier - struct for identifying funciton

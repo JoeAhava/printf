@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
  * get_func - select funciton for conversion
@@ -59,10 +60,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			j = check_modifier(format, (i + 1));
-			sum += j;
-			if (format[i + 1] != '\0')
+			j = check_modifier(format[i + 1], format[i + 2]);
+			if (j == 0)
+			{
+				if (format[i + 1] != '\0')
+					function = get_func(format[i + 1]);
+			} else
+			{
+				sum += j;
+				i++;
 				function = get_func(format[i + 1]);
+			}
 			if (function == NULL)
 			{
 				_putchar(format[i]);
@@ -85,37 +93,28 @@ int _printf(const char *format, ...)
 	return (sum);
 }
 
-int check_modifier(const char *format, int i)
+int check_modifier(char s, char p)
 {
 	int m = 0;
-	switch (format[i])
+
+	switch (s)
 	{
 	case '+':
-		if(check_modifier(format, (i + 1)) == 0 &&
-		   (format[i] >= 0 && format[i] <= 0))
-		{
-			_putchar('+');
-			m =+ check_modifier(format, (i + 1));
-		}
+		_putchar('+');
+		m++;
 		break;
 	case ' ':
-		if(check_modifier(format, (i + 1)) == 0 &&
-		   (format[i] >= 0 && format[i] <= 0))
+		if (p > '0' &&
+		    p < '9')
 		{
 			_putchar(' ');
-			m =+ check_modifier(format, (i + 1));
-		}
-		break;
-	case '#':
-		if(get_func(format[i + 1]))
-		{
-			_putchar('0');
 			m++;
 		}
 		break;
-	default:
+	case '#':
+		_putchar('0');
+		m++;
 		break;
 	}
-
 	return (m);
 }
