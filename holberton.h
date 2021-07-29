@@ -6,26 +6,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/**
- * struct modifier - mofifier fields collection
- * @flags: pointer to char can be 
- * any of ['0', ' ', '#', '+', '-']
- * @width: width field, positive number
- * @precision: precision field positive 
- * number not including '.'or -1 for '*'
- * @length: pointer to char
- * @specifier: char value
- *
- */
-typedef struct modifier
-{
-	char *flags;
-	int width;
-	int precision;
-	char *length;
-	char specifier;
-} modifier_t;
-
 int _printf(const char *format, ...);
 int print_char(va_list ap);
 int print_str(va_list ap);
@@ -50,14 +30,7 @@ int print_str_x(va_list ap);
 int print_rot13(va_list ap);
 char *convert_rot13(char *str);
 
-void *_realloc(void *ptr, unsigned int, unsigned int);
-void free_modifier(modifier_t *);
-char *get_flags(const char *, unsigned int *);
-int get_width(const char *, unsigned int *);
-int get_precision(const char *, unsigned int *);
-char *get_length(const char *, unsigned int *);
-char get_specifier(const char *, unsigned int *);
-modifier_t *get_modifier(const char *, unsigned int *);
+int check_modifier(char s, char p);
 
 /**
  *struct func_identifier - struct for identifying funciton
