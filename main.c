@@ -13,6 +13,8 @@ int main(void)
     int len2;
     unsigned int ui;
     void *addr;
+	int m = -12;
+	int n = 12;
 
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
@@ -42,13 +44,13 @@ int main(void)
     printf("Unknown:[%r]\n");
 
 printf("\n\n");
-printf("Normal:[%d]\n", -12);
-    _printf("Normal:[%d]\n", 12);
-     printf("Plus:[%+d]\n", -12);
-    _printf("Plus:[%+d]\n", 12);
-    printf("Space:[% d]\n", 12);
-    _printf("Space:[% d]\n", 12);	
-     printf("Harsh:[%#d]\n", 12);
-    _printf("Harsh:[%#d]\n", 12);
+printf("Normal:[%d]\n", m);
+    _printf("Normal:[%d]\n", m);
+     printf("Plus:[%+d]\n", m);
+    _printf("Plus:[%+d]\n", n);
+    printf("Space:[% d]\n", n);
+    _printf("Space:[% d]\n", n);	
+     printf("Harsh:[%#d]\n", n);
+    _printf("Harsh:[%#d]\n", n);
     return (0);
 }
