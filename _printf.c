@@ -42,10 +42,8 @@ int (*get_func(const char c))(va_list)
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, sum = 0;
+	int i = 0, sum = 0, j;
 	int (*function)();
-	unsigned int m;
-	modifier_t *modif;
 
 	va_list ap;
 
@@ -61,12 +59,12 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			j = check_modifier(format, (i + 1));
+			sum += j;
 			if (format[i + 1] != '\0')
 				function = get_func(format[i + 1]);
 			if (function == NULL)
 			{
-				m = i + 1;
-				modif = get_modifier(format, &m);
 				_putchar(format[i]);
 				sum++;
 				i++;
@@ -76,7 +74,6 @@ int _printf(const char *format, ...)
 				i += 2;
 				continue;
 			}
-			free(modif);
 		} else
 		{
 			_putchar(format[i]);
@@ -86,4 +83,39 @@ int _printf(const char *format, ...)
 	}
 	va_end(ap);
 	return (sum);
+}
+
+int check_modifier(const char *format, int i)
+{
+	int m = 0;
+	switch (format[i])
+	{
+	case '+':
+		if(check_modifier(format, (i + 1)) == 0 &&
+		   (format[i] >= 0 && format[i] <= 0))
+		{
+			_putchar('+');
+			m =+ check_modifier(format, (i + 1));
+		}
+		break;
+	case ' ':
+		if(check_modifier(format, (i + 1)) == 0 &&
+		   (format[i] >= 0 && format[i] <= 0))
+		{
+			_putchar(' ');
+			m =+ check_modifier(format, (i + 1));
+		}
+		break;
+	case '#':
+		if(get_func(format[i + 1]))
+		{
+			_putchar('0');
+			m++;
+		}
+		break;
+	default:
+		break;
+	}
+
+	return (m);
 }
